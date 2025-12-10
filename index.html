@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio | CHILUKURI SAI SRI HARSHA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-color: #0b1220;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.35);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 24px 16px 48px;
+    }
+
+    .page-wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .glass-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.98));
+      border-radius: 32px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 22px 32px;
+      backdrop-filter: blur(14px);
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 40px 24px 60px;
+      }
+      .glass-card {
+        padding: 34px 34px 40px;
+      }
+    }
+
+    /* Header */
+
+    .top-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.8));
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .top-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    @media (min-width: 768px) {
+      .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 32px;
+      }
+    }
+
+    .name-block h1 {
+      font-size: 1.9rem;
+      letter-spacing: 0.03em;
+    }
+
+    .name-highlight {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #22c55e);
+
+      /* standard property for compatibility */
+      background-clip: text;
+
+      /* vendor-prefixed fallback for WebKit browsers */
+      -webkit-background-clip: text;
+
+      /* ensure the gradient shows as text color in WebKit */
+      -webkit-text-fill-color: transparent;
+
+      /* general fallback */
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+      max-width: 520px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .tag-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--text-muted);
+    }
+
+    .contact-block {
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .contact-block {
+        text-align: right;
+      }
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .contact-list li + li {
+      margin-top: 4px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Layout grid */
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr;
+      gap: 22px;
+      margin-top: 14px;
+    }
+
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+        align-items: flex-start;
+      }
+    }
+
+    .section-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), rgba(15, 23, 42, 0.98));
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 18px;
+    }
+
+    .section-card.alt {
+      background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.13), rgba(15, 23, 42, 0.98));
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .section-subtext {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Lists */
+
+    .pill-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .skill-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .subsection-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 6px;
+    }
+
+    .bullet-list li::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0.65em;
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Project cards */
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      padding: 12px 13px 13px;
+      margin-bottom: 10px;
+    }
+
+    .project-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 0.98rem;
+    }
+
+    .project-chip {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.65);
+      color: #e0f2fe;
+      white-space: nowrap;
+    }
+
+    .project-meta {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Timeline */
+
+    .timeline-item {
+      margin-bottom: 10px;
+    }
+
+    .timeline-title {
+      font-size: 0.9rem;
+    }
+
+    .timeline-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .footer span {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="glass-card">
+      <div class="top-pill">
+        <span class="top-pill-dot"></span>
+        <span>Available for Design & Dev Internships</span>
+      </div>
+
+      <!-- Header -->
+      <header class="header">
+        <div class="name-block">
+          <h1><span class="name-highlight">CHILUKURI SAI SRI HARSHA</span></h1>
+          <p class="subtitle">
+            Design & Development intern focused on building user-friendly web apps,
+            data-driven solutions, and clean, structured experiences.
+          </p>
+          <div class="tag-row">
+            <span class="tag-pill">Python & Streamlit</span>
+            <span class="tag-pill">Web Development</span>
+            <span class="tag-pill">Beginner UI/UX</span>
+            <span class="tag-pill">Open to Internships</span>
+          </div>
+        </div>
+        <div class="contact-block">
+          <strong>Contact</strong>
+          <ul class="contact-list">
+            <li>Email: <a href="mailto:chilukurisaisriharsha@gmail.com">chilukurisaisriharsha@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/sai-sri-harsha-118a27295/" target="_blank">Profile</a></li>
+            <li>GitHub: <a href="https://github.com/S-a-i123" target="_blank">S-a-i123</a></li>
+            <li>Phone: <span>+91 8309850254</span></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- Main Grid -->
+      <main class="grid">
+        <!-- Left column: About + Projects -->
+        <section>
+          <div class="section-card">
+            <p class="section-title">Overview</p>
+            <h2 class="section-heading">About Me</h2>
+            <p class="section-subtext">
+              I am a Computer Science Engineering student with a strong interest in design,
+              development, and problem-solving. I enjoy turning ideas into working interfaces and
+              tools, with a focus on clarity, structure, and a good user experience.
+              I’m actively seeking Design / Development internships where I can contribute and grow.
+            </p>
+
+            <div class="subsection-label">Technical Skills</div>
+            <div class="pill-grid">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">Matplotlib</span>
+              <span class="skill-pill">Streamlit</span>
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">Data Visualization</span>
+              <span class="skill-pill">PDF/Text Processing</span>
+            </div>
+
+            <div class="subsection-label">Soft Skills</div>
+            <div class="pill-grid">
+              <span class="skill-pill">Creative Problem-Solving</span>
+              <span class="skill-pill">Teamwork</span>
+              <span class="skill-pill">Analytical Thinking</span>
+              <span class="skill-pill">Adaptability</span>
+              <span class="skill-pill">Active Listening</span>
+            </div>
+          </div>
+
+          <div class="section-card" style="margin-top: 16px;">
+            <p class="section-title">Work</p>
+            <h2 class="section-heading">Projects</h2>
+
+            <!-- Project 1 -->
+            <article class="project-card">
+              <div class="project-top-row">
+                <h3 class="project-title">PDF Text Extractor – Streamlit Web App</h3>
+                <span class="project-chip">Python · Streamlit</span>
+              </div>
+              <p class="project-meta">August 2025 · Personal Project</p>
+              <p class="project-desc">
+                A web app that allows users to upload PDF files, extract text page-wise,
+                preview content, and search for specific keywords within the document.
+              </p>
+              <ul class="bullet-list">
+                <li>Implemented PDF parsing using PyMuPDF (fitz) for efficient extraction.</li>
+                <li>Designed an interactive UI with options to preview full text or per-page output.</li>
+                <li>Added keyword search to quickly locate important information inside long PDFs.</li>
+              </ul>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+              <div class="project-top-row">
+                <h3 class="project-title">Preventing &amp; Predicting UPI Fraud</h3>
+                <span class="project-chip">Big Data · ML</span>
+              </div>
+              <p class="project-meta">January 2025 · Research Project</p>
+              <p class="project-desc">
+                A research-focused project that uses big data analytics and machine learning
+                to detect and prevent UPI (Unified Payments Interface) fraud.
+              </p>
+              <ul class="bullet-list">
+                <li>Built an anomaly detection model to flag unusual transaction patterns.</li>
+                <li>Analyzed transaction data to identify suspicious behaviors and risk points.</li>
+                <li>Explored predictive techniques to improve digital payment security.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- Right column: Experience, Education, Certifications, Interests -->
+        <aside>
+          <div class="section-card alt">
+            <p class="section-title">Experience</p>
+            <h2 class="section-heading">Internship</h2>
+
+            <div class="timeline-item">
+              <h3 class="timeline-title">Cyient Ltd., Hyderabad – Intern</h3>
+              <p class="timeline-meta">June 2025 – September 2025</p>
+              <ul class="bullet-list">
+                <li>Completed a 3-month internship under the guidance of the hiring manager.</li>
+                <li>Gained hands-on exposure to corporate processes and engineering workflows.</li>
+                <li>Maintained a learning diary and submitted a detailed internship report.</li>
+                <li>Received an internship completion certificate from the organization.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-card alt" style="margin-top: 16px;">
+            <p class="section-title">Education</p>
+            <h2 class="section-heading">Academics</h2>
+
+            <div class="timeline-item">
+              <h3 class="timeline-title">B.Tech – Computer Science Engineering</h3>
+              <p class="timeline-meta">KL University, Hyderabad · 2022 – 2026 · CGPA: 8.05</p>
+            </div>
+
+            <div class="timeline-item">
+              <h3 class="timeline-title">Higher Secondary – MPC</h3>
+              <p class="timeline-meta">Narayana Junior College · 2020 – 2022 · CGPA: 9.02</p>
+            </div>
+
+            <div class="timeline-item">
+              <h3 class="timeline-title">Secondary School (SSC)</h3>
+              <p class="timeline-meta">Montessori Residential High School · 2019 – 2020 · CGPA: 10.0</p>
+            </div>
+          </div>
+
+          <div class="section-card alt" style="margin-top: 16px;">
+            <p class="section-title">Certifications</p>
+            <h2 class="section-heading">Credentials</h2>
+
+            <ul class="bullet-list">
+              <li>AWS Certified Cloud Practitioner (2025)</li>
+              <li>MongoDB Certified Developer Associate</li>
+              <li>Automation Anywhere (RPA)</li>
+              <li>Front-End Development – Coursera</li>
+              <li>AI/ML – AICTE & Google for Developers</li>
+              <li>Big Data – Coursera</li>
+              <li>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</li>
+            </ul>
+          </div>
+
+          <div class="section-card alt" style="margin-top: 16px;">
+            <p class="section-title">Beyond Work</p>
+            <h2 class="section-heading">Interests</h2>
+            <p class="section-subtext">
+              Outside academics and projects, I enjoy:
+            </p>
+            <ul class="bullet-list">
+              <li>Reading and online learning on platforms like Coursera.</li>
+              <li>Exploring new tools and technologies.</li>
+              <li>Playing cricket and team-based outdoor activities.</li>
+            </ul>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <span>Designed & built by CHILUKURI SAI SRI HARSHA</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
